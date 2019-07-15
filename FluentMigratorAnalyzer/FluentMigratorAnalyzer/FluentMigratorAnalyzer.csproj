@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard1.3</TargetFramework>
@@ -8,7 +8,7 @@
 
   <PropertyGroup>
     <PackageId>FluentMigratorAnalyzer</PackageId>
-    <PackageVersion>1.0.0.0</PackageVersion>
+    <PackageVersion>1.0.2.0</PackageVersion>
     <Authors>raul.tomita</Authors>
     <PackageLicenseUrl></PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/raultomita/FluentMigratorAnalyzer</PackageProjectUrl>
@@ -22,6 +22,7 @@
     <NoPackageAnalysis>true</NoPackageAnalysis>
     <RepositoryType>github</RepositoryType>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
   <ItemGroup>

@@ -58,7 +58,7 @@ namespace FluentMigratorAnalyzer
 
             var attributes = typeDecl.AttributeLists.Add(
                 SyntaxFactory.AttributeList(SyntaxFactory.SingletonSeparatedList(
-                    SyntaxFactory.Attribute(SyntaxFactory.IdentifierName("Migration"))
+                    SyntaxFactory.Attribute(SyntaxFactory.IdentifierName(ClassNames.Migration))
                     .WithArgumentList(
                         SyntaxFactory.AttributeArgumentList(SyntaxFactory.SingletonSeparatedList(
                             SyntaxFactory.AttributeArgument(SyntaxFactory.LiteralExpression(SyntaxKind.NumericLiteralExpression, SyntaxFactory.Literal(value)))

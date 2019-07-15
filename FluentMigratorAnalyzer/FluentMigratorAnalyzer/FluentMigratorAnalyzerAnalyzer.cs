@@ -56,19 +56,25 @@ namespace FluentMigratorAnalyzer
         {
             ClassDeclarationSyntax node = context.Node as ClassDeclarationSyntax;
 
-            if(node == null)
+            if(node == null || node.BaseList == null)
             {
                 return;
             }
 
-            var isValid = node.BaseList.Types.Any(t => t.ToString() == "Migration");
+            if(node.Identifier.ToString() == ClassNames.MigrationUp)
+            {
+                return;
+            }
+            
+            var isValid = node.BaseList.Types.Any(t => ClassNames.All.Contains(t.ToString()));
 
             if (!isValid)
             {
                 return;
             }
 
-            var attributeExists = node.AttributeLists.SelectMany(a => a.Attributes).Any(a => a.Name.ToString() == "Migration");
+            var attributeExists = node.AttributeLists.SelectMany(a => a.Attributes).Any(a => a.Name.ToString() == ClassNames.Migration || a.Name.ToString() == ClassNames.Profile);
+
             if (!attributeExists)
             {
                 context.ReportDiagnostic(Diagnostic.Create(MissingRule, node.GetLocation()));
@@ -83,7 +89,7 @@ namespace FluentMigratorAnalyzer
                 return;
             }
 
-            if (node.Name.ToString() != "Migration")
+            if (node.Name.ToString() != ClassNames.Migration)
             {
                 return;
             }
