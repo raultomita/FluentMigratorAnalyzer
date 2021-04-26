@@ -54,7 +54,7 @@ namespace FluentMigratorAnalyzer
         private async Task<Solution> MakeUppercaseAsync(Document document, TypeDeclarationSyntax typeDecl, CancellationToken cancellationToken)
         {
             var root = await document.GetSyntaxRootAsync(cancellationToken);
-            double value = Int64.Parse(DateTime.Now.ToString("yyyyMMddHHss"));
+            double value = Int64.Parse(DateTime.Now.ToString("yyyyMMddHHmm"));
 
             var attributes = typeDecl.AttributeLists.Add(
                 SyntaxFactory.AttributeList(SyntaxFactory.SingletonSeparatedList(
